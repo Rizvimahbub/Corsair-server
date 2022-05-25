@@ -21,7 +21,7 @@ async function run() {
     try {
         await client.connect();
         const displayCollection = client.db('Compuiter-parts').collection('display');
-        const orderCollection = client.db('Compuiter-parts').collection('order');
+        const orderCollection =  client.db('Compuiter-parts').collection('order');
 
 
         app.get('/tool', async (req, res) => {
