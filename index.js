@@ -33,7 +33,7 @@ async function run() {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const tool = await displayCollection.findOne(query);
-            res.send(tool);
+            res.send( tool );
         })
 
 
