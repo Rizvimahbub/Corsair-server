@@ -147,7 +147,7 @@ async function run() {
         app.get('/profile/:email', async (req, res) => {
             const email = req.params.email; 
             const filter = { email: email };
-            const result = await profileCollection.findOne(filter); 
+            const result = await profileCollection.findOne(filter);  
             console.log(result)
             res.send(result);
         })
