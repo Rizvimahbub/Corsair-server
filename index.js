@@ -28,7 +28,23 @@ async function run() {
 
         app.get('/tool', async (req, res) => {
             const result = await displayCollection.find().toArray();
+            console.log(result)
             res.send(result);
+        })
+
+        app.post('/tool', async (req, res) => {
+            const tool = req.body;
+            console.log(tool)
+            const result = await displayCollection.insertOne(tool);
+            res.send(result)
+        })
+
+
+        app.delete('/users/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id:ObjectId(id) };
+            const result = await userCollection.deleteOne(filter);
+            res.send(result)
         })
 
         app.get('/tool/:id', async (req, res) => {
@@ -74,6 +90,9 @@ async function run() {
             const result = await orderCollection.find(filter).toArray();
             res.send(result)
         })
+
+
+        
 
 
         app.patch('/order/:id', async(req, res) => {
